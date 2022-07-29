@@ -1,6 +1,5 @@
 package msikora.task.ui.create
 
-import android.widget.Space
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.selection.selectableGroup
@@ -16,14 +15,17 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavController
 import msikora.task.domain.Gender
 import msikora.task.ui.Colors
 
 @Composable
 fun CreateUserDialog(
+    navController: NavController,
     viewModel: CreateUserViewModel = hiltViewModel(),
-    onDismissRequest: () -> Unit
 ) {
+
+    val onDismissRequest: () -> Unit = { navController.popBackStack() }
     Dialog(
         onDismissRequest = onDismissRequest
     ) {

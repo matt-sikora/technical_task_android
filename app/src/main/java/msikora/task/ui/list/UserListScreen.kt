@@ -20,19 +20,20 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavController
 import kotlinx.coroutines.flow.collectLatest
 import msikora.task.domain.User
 import msikora.task.core.CallState
+import msikora.task.core.extractSingleMessage
 import msikora.task.domain.Gender
 import msikora.task.ui.Colors
+import msikora.task.ui.Routes
 import msikora.task.ui.common.ErrorView
 import msikora.task.ui.common.ProgressView
-import msikora.task.ui.create.CreateUserDialog
 
 @Composable
-fun UserListScreen(viewModel: UserListViewModel = hiltViewModel()) {
+fun UserListScreen(navController: NavController, viewModel: UserListViewModel = hiltViewModel()) {
     var pendingUserToDelete by rememberSaveable { mutableStateOf<User?>(null) }
-    var createUserVisible by rememberSaveable { mutableStateOf(false) }
     val snackbarHostState = remember { SnackbarHostState() }
     LaunchedEffect(viewModel.messages) {
         viewModel.messages.collectLatest { message ->
@@ -60,7 +61,7 @@ fun UserListScreen(viewModel: UserListViewModel = hiltViewModel()) {
                     )
                 },
                 onClick = {
-                    createUserVisible = true
+                    navController.navigate(Routes.create)
                 },
             )
         }
@@ -73,9 +74,6 @@ fun UserListScreen(viewModel: UserListViewModel = hiltViewModel()) {
                 onDeleteRequest = { viewModel.delete(it) },
                 pendingUserSnapshot = pendingUserToDelete
             )
-            if (createUserVisible) {
-                CreateUserDialog(onDismissRequest = { createUserVisible = false })
-            }
             ItemsList(viewModel) { pendingUserToDelete = it }
         }
     }
@@ -120,10 +118,11 @@ fun ItemsList(
     onLongPressed: (User) -> Unit,
 ) {
     val items by viewModel.users.collectAsState(emptyList())
-    val fetchingState by viewModel.fetchingState.collectAsState(CallState.Loading)
-
-    when (fetchingState) {
-        is CallState.Error -> ErrorView(viewModel::retryFetching)
+    when (val fetchingState = viewModel.fetchingState.collectAsState(CallState.Loading).value) {
+        is CallState.Error -> ErrorView(
+            viewModel::retryFetching,
+            fetchingState.extractSingleMessage()
+        )
         CallState.Loading -> ProgressView()
         is CallState.Success -> {
             LazyColumn(

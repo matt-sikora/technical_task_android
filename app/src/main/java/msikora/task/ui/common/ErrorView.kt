@@ -9,7 +9,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 
 @Composable
-fun ErrorView(onClick: () -> Unit) {
+fun ErrorView(onClick: () -> Unit, errorMessage: String) {
     Box(
         contentAlignment = Alignment.Center,
         modifier = Modifier
@@ -17,8 +17,7 @@ fun ErrorView(onClick: () -> Unit) {
             .clickable(onClick = onClick)
     ) {
         Text(
-            text = "Something went wrong, tap to retry",
+            text = errorMessage,
         )
     }
-
 }

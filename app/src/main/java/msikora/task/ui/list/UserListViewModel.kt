@@ -10,6 +10,7 @@ import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import msikora.task.core.CallState
+import msikora.task.core.extractSingleMessage
 import msikora.task.data.UsersRepository
 import msikora.task.domain.User
 import javax.inject.Inject
@@ -38,7 +39,7 @@ class UserListViewModel
         viewModelScope.launch {
             repo.deleteUser(user.id).collect { callState ->
                 if (callState is CallState.Error) {
-                    _messages.send("Something went wrong :(")
+                    _messages.send(callState.extractSingleMessage())
                 } else if (callState is CallState.Success) {
                     _messages.send("${user.name} deleted")
                 }

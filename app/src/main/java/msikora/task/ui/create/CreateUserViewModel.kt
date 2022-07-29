@@ -12,6 +12,7 @@ import msikora.task.NewUser
 import msikora.task.core.ApiError
 import msikora.task.core.CallState
 import msikora.task.core.NetworkError
+import msikora.task.core.extractSingleMessage
 import msikora.task.data.UsersRepository
 import msikora.task.domain.Gender
 import msikora.task.ui.common.validator.NonBlankValidator
@@ -87,12 +88,7 @@ class CreateUserViewModel
                                     }
                                 }
                             }
-                            is NetworkError -> {
-                                _generalError.value = "Check your network connection and try again"
-                            }
-                            else -> {
-                                _generalError.value = "Something went wrong"
-                            }
+                            else -> _generalError.value = callState.extractSingleMessage()
                         }
                     }
                     CallState.Loading -> {
