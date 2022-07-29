@@ -4,6 +4,8 @@ buildscript {
     }
     ext {
         compose_version = '1.2.0'
+        retrofit_version = '2.9.0'
+        coroutines_version = '1.6.3'
     }
 }// Top-level build file where you can add configuration options common to all sub-projects/modules.
 plugins {
