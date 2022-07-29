@@ -1,6 +1,4 @@
-package msikora.task
-
-import msikora.task.domain.Gender
+package msikora.task.domain
 
 data class NewUser(
     val email: String,

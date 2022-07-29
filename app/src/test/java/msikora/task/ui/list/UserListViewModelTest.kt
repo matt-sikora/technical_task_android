@@ -13,11 +13,11 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
 import kotlinx.coroutines.test.runTest
 import msikora.task.common.MainDispatcherRule
-import msikora.task.domain.User
 import msikora.task.core.CallState
 import msikora.task.data.ResultFixtures
 import msikora.task.data.UserFixtures
 import msikora.task.data.UsersRepository
+import msikora.task.domain.User
 import org.junit.Assert.assertEquals
 import org.junit.Rule
 import org.junit.Test

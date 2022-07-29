@@ -4,8 +4,8 @@ import com.haroldadmin.cnradapter.NetworkResponse
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import msikora.task.core.ApiError
-import msikora.task.core.NetworkError
 import msikora.task.core.CallState
+import msikora.task.core.NetworkError
 import msikora.task.data.dto.ApiErrorResponse
 
 fun <ApiModel, EmittedModel> networkCallAsResultFlow(

@@ -16,11 +16,7 @@ data class UserDto(
         return User(
             id = id ?: return null,
             email = email ?: return null,
-            gender = when (gender) {
-                "male" -> Gender.Male
-                "female" -> Gender.Female
-                else -> return null
-            },
+            gender = gender?.asGender() ?: return null,
             name = name ?: return null,
             isActive = status == STATUS_ACTIVE,
         )
@@ -28,6 +24,6 @@ data class UserDto(
 
     companion object {
 
-        val STATUS_ACTIVE = "active"
+        const val STATUS_ACTIVE = "active"
     }
 }

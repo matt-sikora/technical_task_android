@@ -5,14 +5,14 @@ package msikora.task.data
 import com.haroldadmin.cnradapter.NetworkResponse
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.*
-import msikora.task.NewUser
-import msikora.task.domain.User
 import msikora.task.core.ApiError
 import msikora.task.core.CallState
 import msikora.task.data.dto.ErrorDto
 import msikora.task.data.dto.NewUserDto
 import msikora.task.data.dto.UserListResponse
 import msikora.task.data.service.UsersService
+import msikora.task.domain.NewUser
+import msikora.task.domain.User
 import javax.inject.Inject
 import javax.inject.Singleton
 

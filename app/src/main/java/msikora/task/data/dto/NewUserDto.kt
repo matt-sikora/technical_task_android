@@ -1,8 +1,8 @@
 package msikora.task.data.dto
 
 import kotlinx.serialization.Serializable
-import msikora.task.NewUser
 import msikora.task.domain.Gender
+import msikora.task.domain.NewUser
 
 @Serializable
 data class NewUserDto(

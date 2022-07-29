@@ -7,15 +7,11 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.test.runTest
 import msikora.task.BuildConfig
-import msikora.task.NewUser
-import msikora.task.core.ApiError
 import msikora.task.core.CallState
-import msikora.task.data.dto.NewUserDto
 import msikora.task.data.service.UsersService
 import msikora.task.di.NetworkModule.okHttp
 import msikora.task.di.NetworkModule.retrofit
 import msikora.task.di.NetworkModule.usersService
-import msikora.task.domain.Gender
 import okhttp3.logging.HttpLoggingInterceptor
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue

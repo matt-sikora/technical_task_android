@@ -22,10 +22,10 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import kotlinx.coroutines.flow.collectLatest
-import msikora.task.domain.User
 import msikora.task.core.CallState
 import msikora.task.core.extractSingleMessage
 import msikora.task.domain.Gender
+import msikora.task.domain.User
 import msikora.task.ui.Colors
 import msikora.task.ui.Routes
 import msikora.task.ui.common.ErrorView

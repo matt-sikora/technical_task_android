@@ -15,7 +15,8 @@ import msikora.task.data.ResultFixtures
 import msikora.task.data.UserFixtures
 import msikora.task.data.UsersRepository
 import msikora.task.ui.common.validator.NonBlankValidator
-import org.junit.Assert.*
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test

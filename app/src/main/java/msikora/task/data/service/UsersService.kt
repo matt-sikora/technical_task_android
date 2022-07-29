@@ -3,7 +3,6 @@ package msikora.task.data.service
 import com.haroldadmin.cnradapter.NetworkResponse
 import msikora.task.data.dto.ApiErrorResponse
 import msikora.task.data.dto.NewUserDto
-import msikora.task.data.dto.UserDto
 import msikora.task.data.dto.UserListResponse
 import retrofit2.http.*
 

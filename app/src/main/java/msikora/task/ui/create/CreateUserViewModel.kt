@@ -8,13 +8,12 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
-import msikora.task.NewUser
 import msikora.task.core.ApiError
 import msikora.task.core.CallState
-import msikora.task.core.NetworkError
 import msikora.task.core.extractSingleMessage
 import msikora.task.data.UsersRepository
 import msikora.task.domain.Gender
+import msikora.task.domain.NewUser
 import msikora.task.ui.common.validator.NonBlankValidator
 import javax.inject.Inject
 

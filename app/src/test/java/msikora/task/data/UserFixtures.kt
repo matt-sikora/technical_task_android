@@ -1,7 +1,7 @@
 package msikora.task.data
 
-import msikora.task.NewUser
 import msikora.task.domain.Gender
+import msikora.task.domain.NewUser
 import msikora.task.domain.User
 import java.util.*
 
